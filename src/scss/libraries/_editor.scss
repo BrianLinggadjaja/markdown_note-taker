@@ -927,6 +927,16 @@ span[data-img-src]::after {
         margin: 0.25rem 0 1rem 0;
     }
 
+    a {
+        background-color: $color-shadow-light;
+        color: $color-primary;
+
+        &:hover,
+        &:focus {
+            background-color: $color-accent;
+        }
+    }
+
     .cm-header,
     h1,
     h2,
