@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: '/simple_markdown_notetaker/',
   css: {
     loaderOptions: {
       sass: {
