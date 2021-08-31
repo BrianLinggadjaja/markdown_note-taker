@@ -2,6 +2,9 @@
 
 ![Notetaking WebApp Editor](https://repository-images.githubusercontent.com/302704128/12744400-4ec7-11eb-96e0-44f6728d59af)
 
+Hosted on **GitHub Pages** at
+https://brianlinggadjaja.github.io/simple_markdown_notetaker/
+
 ## Project Setup
 
 Install dependencies
