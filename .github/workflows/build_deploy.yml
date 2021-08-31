@@ -28,13 +28,15 @@ jobs:
 
       # Install yarn package manager
       - name: Install yarn
-        run: npm install yarn
+        run: | 
+          npm install yarn
+          rm package-lock.json
 
       # Install project dependencies
       - name: Install dependencies
         run: yarn
 
-      # Compiles repository under src/.vuepress/dist
+      # Compiles repository under dist
       - name: Compile code
         run: npm run build
 
@@ -43,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: src/.vuepress/dist
+          path: dist
           # Amount of days an artifact is stored before being deleted
           retention-days: 1
 
