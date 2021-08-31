@@ -253,7 +253,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
 }
 
 .CodeMirror-scroll {
-    overflow: scroll !important;
     margin-bottom: -50px;
     margin-right: -50px;
     padding-bottom: 50px;
@@ -869,6 +868,109 @@ span[data-img-src]::after {
     background: rgba(255, 0, 0, .15)
 }
 
+/* Additional Editor Styling */
+.EasyMDEContainer {
+    display: flex;
+    flex-flow: column;
+    flex: 100;
+    overflow: hidden;
+    width: 100%;
+
+    .CodeMirror {
+        flex: 100;
+    }
+
+    & * {
+        text-overflow: ellipsis;
+    }
+
+    .CodeMirror-scroll {
+        overflow: auto;
+    }
+
+    .CodeMirror-line {
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+.CodeMirror,
+.editor-preview {
+    blockquote {
+        background-color: $color-primary-lighter;
+        color: $color-primary-invert;
+        border-radius: 0.25rem;
+        padding: 0.25rem 0.25rem 0.25rem 1rem;
+        margin: 0.5rem 0 1rem 0;
+    }
+
+    code {
+        padding: 0.25rem;
+    }
+
+    pre {
+        margin: 0.5rem 0 1rem 0;
+    }
+
+    ul,
+    ol {
+        padding-left: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    ul {
+        list-style: circle;
+    }
+
+    hr {
+        background-color: $color-primary-lighter;
+        margin: 0.25rem 0 1rem 0;
+    }
+
+    .cm-header,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $font-family-header;
+        font-weight: bold;
+        margin: 0.5rem 0;
+        line-height: 1.5;
+    }
+
+    .cm-header-1,
+    h1 {
+        font-size: 2.25rem;
+    }
+
+    .cm-header-2,
+    h2 {
+        font-size: 2rem;
+    }
+
+    .cm-header-3,
+    h3 {
+        font-size: 1.75rem;
+    }
+
+    .cm-header-4,
+    h4 {
+        font-size: 1.6rem;
+    }
+
+    .cm-header-5,
+    h5 {
+        font-size: 1.5rem;
+    }
+
+    .cm-header-6,
+    h6 {
+        font-size: 1.4rem;
+    }
+}
+
 /* Icon Font */
 @font-face {
     font-family: 'icomoon';
@@ -878,7 +980,8 @@ span[data-img-src]::after {
     font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
     speak: never;
@@ -896,49 +999,63 @@ span[data-img-src]::after {
 .icon-book:before {
     content: "\e90f";
 }
+
 .icon-bookmark:before {
     content: "\e90e";
 }
+
 .icon-edit:before {
     content: "\e902";
 }
+
 .icon-trash:before {
     content: "\e903";
 }
+
 .icon-image:before {
     content: "\e904";
 }
+
 .icon-chain:before {
     content: "\e905";
 }
+
 .icon-arrows-alt:before {
     content: "\e906";
 }
+
 .icon-columns:before {
     content: "\e907";
 }
+
 .icon-eye:before {
     content: "\e908";
 }
+
 .icon-list-ol:before {
     content: "\e909";
 }
+
 .icon-list-ul:before {
     content: "\e90a";
 }
+
 .icon-quote-left:before {
     content: "\e90b";
 }
+
 .icon-minus:before {
     content: "\e90c";
 }
+
 .icon-italic:before {
     content: "\e90d";
 }
+
 .icon-bold:before {
     content: "\e900";
 }
+
 .icon-header:before {
     content: "\e901";
 }
-

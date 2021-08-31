@@ -200,3 +200,24 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.editor {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  max-width: 100vw;
+
+  &-title {
+    background-color: $color-primary-lighter;
+    color: $color-primary-invert;
+    padding: 0.5rem 0.75rem;
+
+    & > h1 {
+      font-family: $font-family-header;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
+  }
+}
+</style>
