@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import SimpleMDE from 'simplemde'
-import '@/scss/libraries/_simplemde.scss'
+import EasyMDE from 'easymde'
+import './../../scss/libraries/_editor.scss'
 import { mapActions, mapGetters } from 'vuex'
 import NoteEditor from './NoteEditor'
 
@@ -51,10 +51,9 @@ export default {
     ]),
 
     initEditor: function () {
-      this.markdownEditor = new SimpleMDE({
+      this.markdownEditor = new EasyMDE({
         element: document.getElementById('editorPreview'),
         spellChecker: false,
-        autosave: false,
         status: false,
         hideIcons: ['guide'],
         autoDownloadFontAwesome: false,
@@ -64,76 +63,76 @@ export default {
         toolbar: [
           {
             name: 'heading',
-            action: SimpleMDE.toggleHeadingSmaller,
+            action: EasyMDE.toggleHeadingSmaller,
             className: 'icon-header',
             title: 'Heading Level'
           },
           {
             name: 'bold',
-            action: SimpleMDE.toggleBold,
+            action: EasyMDE.toggleBold,
             className: 'icon-bold',
             title: 'Bold'
           },
           {
             name: 'italic',
-            action: SimpleMDE.toggleItalic,
+            action: EasyMDE.toggleItalic,
             className: 'icon-italic',
             title: 'Italic'
           },
           '|',
           {
             name: 'horizontal-rule',
-            action: SimpleMDE.drawHorizontalRule,
+            action: EasyMDE.drawHorizontalRule,
             className: 'icon-minus',
             title: 'Horizontal Line'
           },
           {
             name: 'quote',
-            action: SimpleMDE.toggleBlockquote,
+            action: EasyMDE.toggleBlockquote,
             className: 'icon-quote-left',
             title: 'Quote'
           },
           {
             name: 'unordered-list',
-            action: SimpleMDE.toggleUnorderedList,
+            action: EasyMDE.toggleUnorderedList,
             className: 'icon-list-ul',
             title: 'Un-ordered List'
           },
           {
             name: 'ordered-list',
-            action: SimpleMDE.toggleOrderedList,
+            action: EasyMDE.toggleOrderedList,
             className: 'icon-list-ol',
             title: 'Ordered List'
           },
           '|',
           {
             name: 'preview',
-            action: SimpleMDE.togglePreview,
+            action: EasyMDE.togglePreview,
             className: 'icon-eye no-disable',
             title: 'Toggle Preview'
           },
           {
             name: 'side-by-side',
-            action: SimpleMDE.toggleSideBySide,
+            action: EasyMDE.toggleSideBySide,
             className: 'icon-columns no-disable no-mobile',
             title: 'Toggle Side by Side (Full-Screen)'
           },
           {
             name: 'fullscreen',
-            action: SimpleMDE.toggleFullScreen,
+            action: EasyMDE.toggleFullScreen,
             className: 'icon-arrows-alt no-disable no-mobile',
             title: 'Toggle Full-Screen'
           },
           '|',
           {
             name: 'link',
-            action: SimpleMDE.drawLink,
+            action: EasyMDE.drawLink,
             className: 'icon-chain',
             title: 'Insert Link'
           },
           {
             name: 'image',
-            action: SimpleMDE.drawImage,
+            action: EasyMDE.drawImage,
             className: 'icon-image',
             title: 'Insert Image'
           },
@@ -201,23 +200,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.editor {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-
-  &-title {
-    background-color: $color-primary-lighter;
-    color: $color-primary-invert;
-    padding: 0.5rem 0.75rem;
-
-    & > h1 {
-      font-family: $font-family-header;
-      font-weight: bold;
-      font-size: 1.25rem;
-    }
-  }
-}
-</style>
