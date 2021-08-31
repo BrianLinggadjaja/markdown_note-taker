@@ -1,5 +1,6 @@
 module.exports = {
-  publicPath: '/simple_markdown_notetaker/',
+  // Set basURL to relative paths
+  publicPath: '',
   css: {
     loaderOptions: {
       sass: {

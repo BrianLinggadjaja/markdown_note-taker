@@ -6,7 +6,7 @@
         <p class="mb-4">Click the return button to go back to safety</p>
         <b-button
           tag="router-link"
-          :to="{ name: 'FileExplorer' }"
+          :to="{ name: 'Editor' }"
           type="is-accent"
           class="is-rounded"
         >
