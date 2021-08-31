@@ -38,7 +38,7 @@ jobs:
 
       # Compiles repository under dist
       - name: Compile code
-        run: npm run build
+        run: yarn
 
       # Save compiled code as artifact
       - name: Upload built directory
