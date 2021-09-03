@@ -11,10 +11,54 @@ import App from './App.vue'
 // Font Awesome
 import { dom, library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faExclamationCircle, faTimesCircle, faBook, faBookmark, faFileAlt, faTags, faSearch, faHashtag, faHeading, faBold, faItalic, faMinus, faQuoteLeft, faListUl, faListOl, faEye, faColumns, faArrowsAlt, faLink, faImage, faEdit } from '@fortawesome/free-solid-svg-icons'
+import {
+  faExclamationCircle,
+  faTimesCircle,
+  faBook,
+  faBookmark,
+  faFileAlt,
+  faTags,
+  faSearch,
+  faHashtag,
+  faHeading,
+  faBold,
+  faItalic,
+  faMinus,
+  faQuoteLeft,
+  faListUl,
+  faListOl,
+  faEye,
+  faColumns,
+  faArrowsAlt,
+  faLink,
+  faImage,
+  faEdit
+} from '@fortawesome/free-solid-svg-icons'
 
 dom.watch()
-library.add(faExclamationCircle, faTimesCircle, faBook, faBookmark, faFileAlt, faTags, faSearch, faHashtag, faHeading, faBold, faItalic, faMinus, faQuoteLeft, faListUl, faListOl, faEye, faColumns, faArrowsAlt, faLink, faImage, faEdit)
+library.add(
+  faExclamationCircle,
+  faTimesCircle,
+  faBook,
+  faBookmark,
+  faFileAlt,
+  faTags,
+  faSearch,
+  faHashtag,
+  faHeading,
+  faBold,
+  faItalic,
+  faMinus,
+  faQuoteLeft,
+  faListUl,
+  faListOl,
+  faEye,
+  faColumns,
+  faArrowsAlt,
+  faLink,
+  faImage,
+  faEdit
+)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 // Mounted Modules

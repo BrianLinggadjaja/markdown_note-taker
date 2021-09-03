@@ -8,7 +8,9 @@
       <section v-else class="editor-page__info">
         <font-awesome-icon class="editor-page__info-icon mb-3" icon="edit" />
         <h1 class="editor-page__info-header">No note selected</h1>
-        <p class="mb-6">Create or select a pre-existing note to start editing!</p>
+        <p class="mb-6">
+          Create or select a pre-existing note to start editing!
+        </p>
       </section>
     </div>
   </main>

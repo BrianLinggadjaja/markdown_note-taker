@@ -129,7 +129,8 @@ const mutations = {
   updateNoteObject (state, newNoteObject) {
     // Populate new note with newNoteObject & Transfer the markdown
     state.allSavedNotes[newNoteObject.title] = newNoteObject
-    state.allSavedNotes[newNoteObject.title].markdown = state.allSavedNotes[state.selectedNoteRef].markdown
+    state.allSavedNotes[newNoteObject.title].markdown =
+      state.allSavedNotes[state.selectedNoteRef].markdown
     delete state.allSavedNotes[state.selectedNoteRef]
   },
 

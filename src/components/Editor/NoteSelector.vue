@@ -6,25 +6,32 @@
         <b-autocomplete
           v-model="name"
           placeholder="Search..."
-          @select="option => selectedSearch = option"
+          @select="option => (selectedSearch = option)"
           :data="findMatchingNote"
           icon-pack="fa"
           icon="search"
           clearable
-          rounded>
+          rounded
+        >
         </b-autocomplete>
       </b-field>
     </div>
     <p class="menu-label">Note Selector</p>
     <div class="note-selector__create-note">
-      <button @click="openNoteCreationModal()" class="button is-primary">Create Note</button>
+      <button @click="openNoteCreationModal()" class="button is-primary">
+        Create Note
+      </button>
     </div>
 
-    <div class="note-wrapper" v-if="(currentNoteSort ==='notes')">
+    <div class="note-wrapper" v-if="currentNoteSort === 'notes'">
       <note-card :key="note" v-for="note in allNoteRefs" :noteRef="note" />
     </div>
-    <div class="note-wrapper" v-else-if="(currentNoteSort ==='bookmarked')">
-      <note-card :key="note" v-for="note in allBookmarkedRefs" :noteRef="note" />
+    <div class="note-wrapper" v-else-if="currentNoteSort === 'bookmarked'">
+      <note-card
+        :key="note"
+        v-for="note in allBookmarkedRefs"
+        :noteRef="note"
+      />
     </div>
   </aside>
 </template>
@@ -56,11 +63,13 @@ export default {
           searchFilter = this.allNoteRefs
       }
 
-      return searchFilter.filter((option) => {
-        return option
-          .toString()
-          .toLowerCase()
-          .indexOf(this.name.toLowerCase()) >= 0
+      return searchFilter.filter(option => {
+        return (
+          option
+            .toString()
+            .toLowerCase()
+            .indexOf(this.name.toLowerCase()) >= 0
+        )
       })
     }
   },
@@ -94,7 +103,7 @@ export default {
 </script>
 
 <style lang="scss">
-.note-selector .input[type="search"] {
+.note-selector .input[type='search'] {
   border-radius: 2rem;
 }
 </style>

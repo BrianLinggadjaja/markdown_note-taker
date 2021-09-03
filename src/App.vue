@@ -27,9 +27,7 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      'addInitalNote'
-    ])
+    ...mapActions(['addInitalNote'])
   }
 }
 </script>

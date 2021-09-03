@@ -7,23 +7,27 @@
     <section class="modal-card-body">
       <b-field label="Note Title (Required)">
         <b-field>
-          <b-input placeholder="New note"
+          <b-input
+            placeholder="New note"
             v-model="title"
             icon-pack="fa"
             icon="hashtag"
             maxlength="36"
-            required>
+            required
+          >
           </b-input>
         </b-field>
       </b-field>
 
       <b-field label="Assigned Notebook">
         <b-field>
-          <b-input placeholder="Notebook"
+          <b-input
+            placeholder="Notebook"
             v-model="attachedNotebook"
             icon-pack="fa"
             icon="book"
-            maxlength="36">
+            maxlength="36"
+          >
           </b-input>
         </b-field>
       </b-field>
@@ -35,14 +39,19 @@
           icon-pack="fa"
           icon="tags"
           maxtags="6"
-          maxlength="8">
+          maxlength="8"
+        >
         </b-taginput>
       </b-field>
     </section>
 
     <section class="modal-card-foot">
-      <button class="button" type="button" @click="$emit('close')">Close</button>
-      <button class="button is-accent" @click="createNewNote()">Create Note</button>
+      <button class="button" type="button" @click="$emit('close')">
+        Close
+      </button>
+      <button class="button is-accent" @click="createNewNote()">
+        Create Note
+      </button>
     </section>
   </div>
 </template>
@@ -60,10 +69,7 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      'createNote',
-      'changeSelectedNote'
-    ]),
+    ...mapActions(['createNote', 'changeSelectedNote']),
 
     createNewNote: function () {
       this.validateNewNote()

@@ -48,29 +48,29 @@ $color-shadow-light: rgba(215, 215, 215, 0.6);
 
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
-    // Base
+  // Base
     'white': ($white, $black),
-    'black': ($black, $white),
-    'light': ($light, $light-invert),
-    'dark': ($dark, $dark-invert),
-    'red': (red, black),
-    'maroon': (maroon, white),
-    'pink': (pink, black),
-    'purple': (purple, white),
-    'yellow': (gold, black),
-    'orange': (orange, white),
-    'lime': (lime, black),
-    'green': (green, white),
-    'cyan': (cyan, black),
-    'blue': (blue,white),
-    // Design System 'primary': ($color-primary, $color-primary-invert),
-    'secondary': ($color-secondary, $color-secondary-invert),
-    'accent': ($color-accent, $color-accent-invert),
-    'background': ($color-background, $color-background-invert),
-    // Action Colors 'info': ($info, $info-invert),
-    'success': ($success, $success-invert),
-    'warning': ($warning, $warning-invert),
-    'danger': ($danger, $danger-invert)
+  'black': ($black, $white),
+  'light': ($light, $light-invert),
+  'dark': ($dark, $dark-invert),
+  'red': (red, black),
+  'maroon': (maroon, white),
+  'pink': (pink, black),
+  'purple': (purple, white),
+  'yellow': (gold, black),
+  'orange': (orange, white),
+  'lime': (lime, black),
+  'green': (green, white),
+  'cyan': (cyan, black),
+  'blue': (blue, white),
+  // Design System 'primary': ($color-primary, $color-primary-invert),
+  'secondary': ($color-secondary, $color-secondary-invert),
+  'accent': ($color-accent, $color-accent-invert),
+  'background': ($color-background, $color-background-invert),
+  // Action Colors 'info': ($info, $info-invert),
+  'success': ($success, $success-invert),
+  'warning': ($warning, $warning-invert),
+  'danger': ($danger, $danger-invert)
 );
 
 // Links

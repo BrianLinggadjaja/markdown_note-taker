@@ -1,12 +1,19 @@
 <template>
-  <a @click="updateSelectedNote()" :class="[ (currentNoteRef === title) ? 'selected': null, 'note box']">
+  <a
+    @click="updateSelectedNote()"
+    :class="[currentNoteRef === title ? 'selected' : null, 'note box']"
+  >
     <h1 v-if="title" class="note-title">
       <font-awesome-icon v-if="currentNoteSort === 'notes'" icon="hashtag" />
-      <font-awesome-icon v-else-if="currentNoteSort === 'bookmarked'" class="mr-1" icon="bookmark" />
+      <font-awesome-icon
+        v-else-if="currentNoteSort === 'bookmarked'"
+        class="mr-1"
+        icon="bookmark"
+      />
       {{ title }}
     </h1>
     <h2 v-if="attachedNotebook" class="note-book">School Lectures</h2>
-    <b-taglist v-if="(tags.length > 0)" class="note__tag-list">
+    <b-taglist v-if="tags.length > 0" class="note__tag-list">
       <b-tag type="is-red">First</b-tag>
       <b-tag type="is-maroon">Second</b-tag>
       <b-tag type="is-pink">Third</b-tag>
@@ -58,9 +65,7 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      'selectNoteSort'
-    ]),
+    ...mapActions(['selectNoteSort']),
 
     updateSelectedNote: function () {
       this.$store.dispatch('changeSelectedNote', this.noteRef)

@@ -7,26 +7,50 @@
       <p class="menu-label">Note Sorter</p>
       <ul class="menu-list">
         <li>
-          <a @click="setNoteSort('notes')" :class="[{ ['active']: (currentNoteSort === 'notes')  }, 'note-sorter__category mb-1']">
+          <a
+            @click="setNoteSort('notes')"
+            :class="[
+              { ['active']: currentNoteSort === 'notes' },
+              'note-sorter__category mb-1'
+            ]"
+          >
             <font-awesome-icon icon="file-alt" />
             <span class="note-sorter__name">All Notes</span>
           </a>
         </li>
         <li>
-          <a @click="setNoteSort('bookmarked')" :class="[{ ['active']: (currentNoteSort === 'bookmarked')  }, 'note-sorter__category']">
+          <a
+            @click="setNoteSort('bookmarked')"
+            :class="[
+              { ['active']: currentNoteSort === 'bookmarked' },
+              'note-sorter__category'
+            ]"
+          >
             <font-awesome-icon icon="bookmark" />
             <span class="note-sorter__name">Bookmarked</span>
           </a>
         </li>
-        <hr>
+        <hr />
         <li>
-          <a @click="setNoteSort('notebooks')" :class="[{ ['active']: (currentNoteSort === 'notebooks')  }, 'note-sorter__category mb-1']">
+          <a
+            @click="setNoteSort('notebooks')"
+            :class="[
+              { ['active']: currentNoteSort === 'notebooks' },
+              'note-sorter__category mb-1'
+            ]"
+          >
             <font-awesome-icon icon="book" />
             <span class="note-sorter__name">Notebooks</span>
           </a>
         </li>
         <li>
-          <a @click="setNoteSort('tags')" :class="[{ ['active']: (currentNoteSort === 'tags')  }, 'note-sorter__category']">
+          <a
+            @click="setNoteSort('tags')"
+            :class="[
+              { ['active']: currentNoteSort === 'tags' },
+              'note-sorter__category'
+            ]"
+          >
             <font-awesome-icon icon="tags" />
             <span class="note-sorter__name">Tags</span>
           </a>
@@ -38,7 +62,8 @@
             class="ml-3 mt-5"
             v-model="lightMode"
             passive-type="is-dark"
-            type="is-warning">
+            type="is-warning"
+          >
             {{ lightMode ? 'Light Mode' : 'Dark Mode' }}
           </b-switch>
         </p>
@@ -58,9 +83,7 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      'selectNoteSort'
-    ]),
+    ...mapActions(['selectNoteSort']),
 
     setNoteSort (selectedSortName) {
       this.$store.dispatch('selectNoteSort', selectedSortName)
@@ -122,11 +145,11 @@ export default {
     min-width: 16rem;
   }
 
-.note-sorter-wrapper{
-  display: flex !important;
-  flex-flow: column;
-  height: 100%;
-}
+  .note-sorter-wrapper {
+    display: flex !important;
+    flex-flow: column;
+    height: 100%;
+  }
 
   & hr {
     background-color: $color-primary-lighter;

@@ -45,10 +45,7 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      'saveSelectedNote',
-      'bookmarkNote'
-    ]),
+    ...mapActions(['saveSelectedNote', 'bookmarkNote']),
 
     initEditor: function () {
       this.markdownEditor = new EasyMDE({
@@ -139,7 +136,8 @@ export default {
           '|',
           {
             name: 'custom',
-            action: () => this.$store.dispatch('bookmarkNote', this.selectedNote.title),
+            action: () =>
+              this.$store.dispatch('bookmarkNote', this.selectedNote.title),
             className: 'icon-bookmark',
             title: 'Edit Name'
           },
