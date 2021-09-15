@@ -98,8 +98,7 @@ export default {
       return value
     },
 
-    /* Validation */
-
+    // Validation
     isValidTitle: function (title) {
       if (title) {
         return true

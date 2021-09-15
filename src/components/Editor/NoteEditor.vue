@@ -5,33 +5,25 @@
     </section>
 
     <section class="modal-card-body">
-      <b-field label="New Note Title (Required)">
-        <b-field>
-          <b-input
-            placeholder="New note title"
-            v-model="title"
-            icon-pack="fa"
-            icon="hashtag"
-            maxlength="36"
-            validation-message="Only lowercase is allowed"
-            pattern="/^[a-z]+[0-9_\/\s,.-]+$/i"
-            required
-          >
-          </b-input>
-        </b-field>
+      <b-field label="Note Title (Required)">
+        <b-input
+          placeholder="New note title"
+          v-model="title"
+          icon-pack="fa"
+          icon="hashtag"
+          maxlength="36"
+          required
+          />
       </b-field>
 
       <b-field label="Assigned Notebook">
-        <b-field>
-          <b-input
-            placeholder="Notebook"
-            v-model="attachedNotebook"
-            icon-pack="fa"
-            icon="book"
-            maxlength="36"
-          >
-          </b-input>
-        </b-field>
+        <b-input
+          placeholder="Notebook"
+          v-model="attachedNotebook"
+          icon-pack="fa"
+          icon="book"
+          maxlength="36"
+          />
       </b-field>
 
       <b-field label="Attached Tags">
@@ -42,8 +34,7 @@
           icon="tags"
           maxtags="6"
           maxlength="8"
-        >
-        </b-taginput>
+          />
       </b-field>
     </section>
 
@@ -51,8 +42,8 @@
       <button class="button" type="button" @click="$emit('close')">
         Close
       </button>
-      <button class="button is-accent" @click="updateNote()">
-        Update Note
+      <button class="button is-accent" @click="createNewNote()">
+        Create Note
       </button>
     </section>
   </div>
@@ -66,7 +57,8 @@ export default {
     return {
       title: null,
       attachedNotebook: null,
-      attachedTags: []
+      attachedTags: [],
+      test: 'test'
     }
   },
 
@@ -75,28 +67,27 @@ export default {
 
     updateNote: function () {
       this.validateNewNote()
-      this.$emit('close')
     },
 
     validateNewNote: function () {
       const cleanNoteObj = {
-        title: this.cleanValue(this.title),
-        attachedNotebook: this.cleanValue(this.attachedNotebook),
+        title: this.removeDuplicateSpaces(this.title),
+        isBookmarked: false,
+        attachedNotebook: this.removeDuplicateSpaces(this.attachedNotebook),
         tags: this.attachedTags
       }
 
-      console.log(this.validateTitle(cleanNoteObj.title))
+      const hasValidTitle = this.isValidTitle(cleanNoteObj.title)
 
-      // this.$store.dispatch('updateNote', cleanNoteObj)
-      // this.$store.dispatch('updateAllNotesRef')
-      // this.$store.dispatch('changeSelectedNote', this.title)
+      if (hasValidTitle) {
+        this.$store.dispatch('updateNote', cleanNoteObj)
+        this.$store.dispatch('updateAllNotesRef')
+        this.$store.dispatch('changeSelectedNote', this.title)
+        this.$emit('close')
+      }
     },
 
-    validateTitle: function (title) {
-      console.log('test', title)
-    },
-
-    cleanValue: function (value) {
+    removeDuplicateSpaces: function (value) {
       if (value) {
         // Trim leading & trailing spaces
         value.trim()
@@ -106,6 +97,15 @@ export default {
       }
 
       return value
+    },
+
+    // Validation
+    isValidTitle: function (title) {
+      if (title) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }
