@@ -13,6 +13,8 @@
             icon-pack="fa"
             icon="hashtag"
             maxlength="36"
+            validation-message="Only lowercase is allowed"
+            pattern="/^[a-z]+[0-9_\/\s,.-]+$/i"
             required
           >
           </b-input>
@@ -83,9 +85,15 @@ export default {
         tags: this.attachedTags
       }
 
-      this.$store.dispatch('updateNote', cleanNoteObj)
-      this.$store.dispatch('updateAllNotesRef')
-      this.$store.dispatch('changeSelectedNote', this.title)
+      console.log(this.validateTitle(cleanNoteObj.title))
+
+      // this.$store.dispatch('updateNote', cleanNoteObj)
+      // this.$store.dispatch('updateAllNotesRef')
+      // this.$store.dispatch('changeSelectedNote', this.title)
+    },
+
+    validateTitle: function (title) {
+      console.log('test', title)
     },
 
     cleanValue: function (value) {
