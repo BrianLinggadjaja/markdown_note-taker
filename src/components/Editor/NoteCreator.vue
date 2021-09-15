@@ -6,30 +6,24 @@
 
     <section class="modal-card-body">
       <b-field label="Note Title (Required)">
-        <b-field>
-          <b-input
-            placeholder="New note"
-            v-model="title"
-            icon-pack="fa"
-            icon="hashtag"
-            maxlength="36"
-            required
-          >
-          </b-input>
-        </b-field>
+        <b-input
+          placeholder="New note"
+          v-model="title"
+          icon-pack="fa"
+          icon="hashtag"
+          maxlength="36"
+          required
+          />
       </b-field>
 
       <b-field label="Assigned Notebook">
-        <b-field>
-          <b-input
-            placeholder="Notebook"
-            v-model="attachedNotebook"
-            icon-pack="fa"
-            icon="book"
-            maxlength="36"
-          >
-          </b-input>
-        </b-field>
+        <b-input
+          placeholder="Notebook"
+          v-model="attachedNotebook"
+          icon-pack="fa"
+          icon="book"
+          maxlength="36"
+          />
       </b-field>
 
       <b-field label="Attached Tags">
@@ -40,8 +34,7 @@
           icon="tags"
           maxtags="6"
           maxlength="8"
-        >
-        </b-taginput>
+          />
       </b-field>
     </section>
 
@@ -73,22 +66,27 @@ export default {
 
     createNewNote: function () {
       this.validateNewNote()
-      this.$emit('close')
     },
 
     validateNewNote: function () {
       const cleanNoteObj = {
-        title: this.cleanValue(this.title),
-        attachedNotebook: this.cleanValue(this.attachedNotebook),
+        title: this.removeDuplicateSpaces(this.title),
+        isBookmarked: false,
+        attachedNotebook: this.removeDuplicateSpaces(this.attachedNotebook),
         tags: this.attachedTags
       }
 
-      this.$store.dispatch('createNote', cleanNoteObj)
-      this.$store.dispatch('updateAllNotesRef')
-      this.$store.dispatch('changeSelectedNote', this.title)
+      const hasValidTitle = this.isValidTitle(cleanNoteObj.title)
+
+      if (hasValidTitle) {
+        this.$store.dispatch('createNote', cleanNoteObj)
+        this.$store.dispatch('updateAllNotesRef')
+        this.$store.dispatch('changeSelectedNote', this.title)
+        this.$emit('close')
+      }
     },
 
-    cleanValue: function (value) {
+    removeDuplicateSpaces: function (value) {
       if (value) {
         // Trim leading & trailing spaces
         value.trim()
@@ -98,6 +96,15 @@ export default {
       }
 
       return value
+    },
+
+    // Validation
+    isValidTitle: function (title) {
+      if (title) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }

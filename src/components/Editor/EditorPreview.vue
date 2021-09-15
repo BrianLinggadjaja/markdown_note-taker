@@ -26,7 +26,8 @@ export default {
   computed: {
     ...mapGetters({
       allNotesRefsArray: 'getAllNoteRefs',
-      selectedNote: 'getSelectedNote'
+      selectedNote: 'getSelectedNote',
+      isBookmarked: 'isCurrentNoteBookmarked'
     })
   },
 
@@ -136,20 +137,13 @@ export default {
           '|',
           {
             name: 'custom',
-            action: () =>
-              this.$store.dispatch('bookmarkNote', this.selectedNote.title),
-            className: 'icon-bookmark',
-            title: 'Edit Name'
-          },
-          {
-            name: 'custom',
             action: () => this.openNoteEditor(),
             className: 'icon-edit',
             title: 'Edit Name'
           },
           {
             name: 'custom',
-            action: () => this.deleteNote(),
+            action: () => this.confirmNoteDeletion(),
             className: 'icon-trash',
             title: 'Delete Note'
           }
@@ -189,6 +183,14 @@ export default {
 
     saveNoteInState: function (editorText) {
       this.$store.dispatch('saveSelectedNote', editorText)
+    },
+
+    confirmNoteDeletion: function () {
+      this.$buefy.dialog.confirm({
+        message: 'Are you sure you want to delete this note?',
+        type: 'is-danger',
+        onConfirm: () => this.deleteNote()
+      })
     },
 
     deleteNote: function () {

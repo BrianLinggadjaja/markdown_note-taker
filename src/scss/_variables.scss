@@ -49,7 +49,7 @@ $color-shadow-light: rgba(215, 215, 215, 0.6);
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
   // Base
-    'white': ($white, $black),
+  'white': ($white, $black),
   'black': ($black, $white),
   'light': ($light, $light-invert),
   'dark': ($dark, $dark-invert),
