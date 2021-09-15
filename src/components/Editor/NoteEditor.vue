@@ -42,8 +42,8 @@
       <button class="button" type="button" @click="$emit('close')">
         Close
       </button>
-      <button class="button is-accent" @click="createNewNote()">
-        Create Note
+      <button class="button is-accent" @click="updateNote()">
+        Update Note
       </button>
     </section>
   </div>
