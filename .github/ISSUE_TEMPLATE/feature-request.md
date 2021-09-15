@@ -1,9 +1,11 @@
 ---
 name: Feature Request
-about: Request a feature.
-title: '[Feature] Feature Title'
+about: Request a new feature.
+title: "[Feature] Feature Title"
 labels: new feature
 assignees: BrianLinggadjaja
----## Feature Title
 
-Feature Description
+---
+
+# Feature Title
+Write a new feature request.
