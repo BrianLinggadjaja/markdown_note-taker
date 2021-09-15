@@ -79,6 +79,7 @@ export default {
     validateNewNote: function () {
       const cleanNoteObj = {
         title: this.cleanValue(this.title),
+        isBookmarked: false,
         attachedNotebook: this.cleanValue(this.attachedNotebook),
         tags: this.attachedTags
       }

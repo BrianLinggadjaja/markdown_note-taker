@@ -177,6 +177,10 @@ const getters = {
   getSelectedNote: state => {
     const parsedNote = state.allSavedNotes[state.selectedNoteRef]
     return parsedNote
+  },
+
+  isCurrentNoteBookmarked: state => {
+    return state.allSavedNotes[state.selectedNoteRef].isBookmarked
   }
 }
 
